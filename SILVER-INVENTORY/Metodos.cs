@@ -16,7 +16,7 @@ namespace SILVER_INVENTORY
 {
     public class Metodos
     {
-        SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString.ToString());
+        SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_ONE_ERP.Settings.SILVER_ERPConnectionString"].ConnectionString.ToString());
 
         #region Basedatos
         public void ConectarBaseDatos()
@@ -43,8 +43,9 @@ namespace SILVER_INVENTORY
             Boolean resultado = false;
             try
             {
-                using (SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString.ToString()))
+                using (SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_ONE_ERP.Settings.SILVER_ERPConnectionString"].ConnectionString.ToString()))
                 {
+                    conexion.Open();
                     SqlCommand comando = new SqlCommand("SELECT* FROM SILV_USERS WHERE US_USERNAME='" + nombre_usuario + "' AND US_ACTIVE_INACTIVE=1",conexion);
                     SqlDataReader lector;
                     lector = comando.ExecuteReader();
@@ -60,7 +61,11 @@ namespace SILVER_INVENTORY
             catch (Exception ex)
             {
 
-                XtraMessageBox.Show(ex.Message,"ERROR");
+                XtraMessageBox.Show(ex.Message,"ERROR USUARIO REGISTRADO");
+            }
+            finally
+            {
+                conexion.Close();
             }
 
             return resultado;
@@ -71,8 +76,9 @@ namespace SILVER_INVENTORY
             string resultado = "";
             try
             {
-                using (SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString.ToString()))
+                using (SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_ONE_ERP.Settings.SILVER_ERPConnectionString"].ConnectionString.ToString()))
                 {
+                    conexion.Open();
                     SqlCommand comando = new SqlCommand("SELECT US_PASSWORD FROM SILV_USERS where US_USERNAME='"+nombre_usuario+ "' AND US_ACTIVE_INACTIVE=1",conexion);
                     SqlDataReader lector;
                     lector = comando.ExecuteReader();
@@ -81,14 +87,18 @@ namespace SILVER_INVENTORY
                         {
                             resultado = Convert.ToString(lector["US_PASSWORD"]);
                         }
-
+                        lector.Close();
                     }
                 }
             }
             catch (Exception ex)
             {
 
-                XtraMessageBox.Show(ex.Message,"ERROR");
+                XtraMessageBox.Show(ex.Message,"ERROR EXISTE CONTRASENA");
+            }
+            finally
+            {
+                conexion.Close();
             }
 
             return resultado;
@@ -99,15 +109,27 @@ namespace SILVER_INVENTORY
             int resultado=0;
             try
             {
-                using (SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString.ToString()))
+                using (SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_ONE_ERP.Settings.SILVER_ERPConnectionString"].ConnectionString.ToString()))
                 {
-
+                    conexion.Open();
+                    SqlCommand comando = new SqlCommand("SELECT ID_USER_TYPE FROM SILV_USERS WHERE US_USERNAME='"+nombre_usuario+"' AND US_ACTIVE_INACTIVE=1",conexion);
+                    SqlDataReader lector;
+                    lector = comando.ExecuteReader();
+                    if (lector.Read())
+                    {
+                        resultado = Convert.ToInt32(lector["ID_USER_TYPE"]);
+                    }
+                    lector.Close();
                 }
             }
             catch (Exception ex)
             {
 
-                XtraMessageBox.Show(ex.Message,"ERROR");
+                XtraMessageBox.Show(ex.Message,"ERROR CONSULTA TIPO USUARIO");
+            }
+            finally
+            {
+                conexion.Close();
             }
 
             return resultado;
