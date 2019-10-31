@@ -17,10 +17,21 @@ namespace SILVER_INVENTORY
 {
     public partial class frm_usuarios : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        //SE CREA UNA INSTANCIA A LA CLASE METODOS PARA PODER UTILIZAR SUS VARIABLES, METODOS
         Metodos mt = new Metodos();
         public frm_usuarios()
         {
             InitializeComponent();
+        }
+        /*
+        LIMPIAR CAMPOS 
+        */
+        public void LimpiarCampos()
+        {
+            TXT_ID.ResetText();
+            TXT_NAME.ResetText();
+            TXT_PASSWORD.ResetText();
+            TXT_USERNAME.ResetText();
         }
         /*
         LLENAR GRIDCONTROL 
@@ -102,7 +113,13 @@ namespace SILVER_INVENTORY
             {
                 try
                 {
-
+                    using (SqlConnection conexion =new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_INVENTORY.Properties.Settings.SILV_INVENTORYConnectionString"].ConnectionString.ToString()))
+                    {
+                        conexion.Open();
+                        mt.comando = new SqlCommand("",conexion);
+                        mt.comando.CommandType = CommandType.StoredProcedure;
+                        //Parametros del command SP
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -115,6 +132,74 @@ namespace SILVER_INVENTORY
         private void BTN_SHOW_ItemClick(object sender, ItemClickEventArgs e)
         {
             LlenarTabla();
+        }
+
+        private void BTN_PRINT_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DGV_DATA.PrintDialog();
+        }
+
+        private void BTN_PREVIEW_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DGV_DATA.ShowRibbonPrintPreview();
+        }
+
+        private void SHOW_PANEL_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.G_DATA.OptionsFind.AlwaysVisible = true;
+            SHOW_PANEL.Enabled = false;
+            HIDE_PANEL.Enabled = true;
+        }
+
+        private void HIDE_PANEL_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.G_DATA.OptionsFind.AlwaysVisible = false;
+            SHOW_PANEL.Enabled = true;
+            HIDE_PANEL.Enabled = false;
+        }
+
+        private void VIEW_AUTOFILTER_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.G_DATA.OptionsView.ShowAutoFilterRow = true;
+            VIEW_AUTOFILTER.Enabled = false;
+            HIDE_PANEL.Enabled = false;
+        }
+
+        private void BTN_CLEAR_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LimpiarCampos();
+        }
+
+        private void BTN_EDIT_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (TXT_ID.Text=="")
+            {
+                XtraMessageBox.Show("DEBE ESPECIFICAR EL IDENTIFICADOR DEL REGISTRO","SISTEMA",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                if (XtraMessageBox.Show("¿DESEA MODIFICAR EL REGISTRO DEL USUARIO?","SISTEMA",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    try
+                    {
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message,"ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+
+                    }
+                }
+            }
         }
     }
 }
