@@ -16,8 +16,9 @@ namespace SILVER_INVENTORY
 {
     public class Metodos
     {
-        SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_ONE_ERP.Settings.SILVER_ERPConnectionString"].ConnectionString.ToString());
-
+        SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_INVENTORY.Properties.Settings.SILV_INVENTORYConnectionString"].ConnectionString.ToString());
+        public SqlDataAdapter adaptador;
+        public DataTable datatables;
         #region Basedatos
         public void ConectarBaseDatos()
         {
@@ -43,10 +44,10 @@ namespace SILVER_INVENTORY
             Boolean resultado = false;
             try
             {
-                using (SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_ONE_ERP.Settings.SILVER_ERPConnectionString"].ConnectionString.ToString()))
+                using (SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_INVENTORY.Properties.Settings.SILV_INVENTORYConnectionString"].ConnectionString.ToString()))
                 {
                     conexion.Open();
-                    SqlCommand comando = new SqlCommand("SELECT* FROM SILV_USERS WHERE US_USERNAME='" + nombre_usuario + "' AND US_ACTIVE_INACTIVE=1",conexion);
+                    SqlCommand comando = new SqlCommand("SELECT* FROM SILV_USUARIOS WHERE US_USUARIO='" + nombre_usuario + "' AND US_ACTIVO_INACTIVO=1",conexion);
                     SqlDataReader lector;
                     lector = comando.ExecuteReader();
 
@@ -76,16 +77,16 @@ namespace SILVER_INVENTORY
             string resultado = "";
             try
             {
-                using (SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_ONE_ERP.Settings.SILVER_ERPConnectionString"].ConnectionString.ToString()))
+                using (SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_INVENTORY.Properties.Settings.SILV_INVENTORYConnectionString"].ConnectionString.ToString()))
                 {
                     conexion.Open();
-                    SqlCommand comando = new SqlCommand("SELECT US_PASSWORD FROM SILV_USERS where US_USERNAME='"+nombre_usuario+ "' AND US_ACTIVE_INACTIVE=1",conexion);
+                    SqlCommand comando = new SqlCommand("SELECT US_CONTRASENA FROM SILV_USUARIOS where US_USUARIO='"+nombre_usuario+ "' AND US_ACTIVO_INACTIVO=1",conexion);
                     SqlDataReader lector;
                     lector = comando.ExecuteReader();
                     if (lector.Read())
                     {
                         {
-                            resultado = Convert.ToString(lector["US_PASSWORD"]);
+                            resultado = Convert.ToString(lector["US_CONTRASENA"]);
                         }
                         lector.Close();
                     }
@@ -109,15 +110,15 @@ namespace SILVER_INVENTORY
             int resultado=0;
             try
             {
-                using (SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_ONE_ERP.Settings.SILVER_ERPConnectionString"].ConnectionString.ToString()))
+                using (SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_INVENTORY.Properties.Settings.SILV_INVENTORYConnectionString"].ConnectionString.ToString()))
                 {
                     conexion.Open();
-                    SqlCommand comando = new SqlCommand("SELECT ID_USER_TYPE FROM SILV_USERS WHERE US_USERNAME='"+nombre_usuario+"' AND US_ACTIVE_INACTIVE=1",conexion);
+                    SqlCommand comando = new SqlCommand("SELECT US_TIPO_USUARIO FROM SILV_USUARIOS WHERE US_USUARIO='"+nombre_usuario+"' AND US_ACTIVO_INACTIVO=1",conexion);
                     SqlDataReader lector;
                     lector = comando.ExecuteReader();
                     if (lector.Read())
                     {
-                        resultado = Convert.ToInt32(lector["ID_USER_TYPE"]);
+                        resultado = Convert.ToInt32(lector["US_TIPO_USUARIO"]);
                     }
                     lector.Close();
                 }

@@ -64,7 +64,7 @@ namespace SILVER_INVENTORY
                 try
                 {
                     mt.ConectarBaseDatos();
-                    using (SqlConnection conexion=new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_ONE_ERP.Settings.SILVER_ERPConnectionString"].ConnectionString.ToString()))
+                    using (SqlConnection conexion=new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_INVENTORY.Properties.Settings.SILV_INVENTORYConnectionString"].ConnectionString.ToString()))
                     {
                         if (mt.UsuarioRegistrado(TXT_USUARIO.Text)==true)
                         {

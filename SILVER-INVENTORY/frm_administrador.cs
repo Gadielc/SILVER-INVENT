@@ -37,5 +37,12 @@ namespace SILVER_INVENTORY
                 frm_login.Show();
             }
         }
+
+        private void BTN_USUARIOS_Click(object sender, EventArgs e)
+        {
+            frm_usuarios usuarios = new frm_usuarios();
+            usuarios.MdiParent = this;
+            usuarios.Show();
+        }
     }
 }
