@@ -16,9 +16,11 @@ namespace SILVER_INVENTORY
 {
     public class Metodos
     {
-        SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_INVENTORY.Properties.Settings.SILV_INVENTORYConnectionString"].ConnectionString.ToString());
+        public SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_INVENTORY.Properties.Settings.SILV_INVENTORYConnectionString"].ConnectionString.ToString());
         public SqlDataAdapter adaptador;
         public DataTable datatables;
+        public SqlCommand comando;
+        public SqlParameter mensaje;
         #region Basedatos
         public void ConectarBaseDatos()
         {
