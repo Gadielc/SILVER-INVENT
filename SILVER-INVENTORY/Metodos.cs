@@ -16,7 +16,7 @@ namespace SILVER_INVENTORY
 {
     public class Metodos
     {
-        SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_INVENTORY.Properties.Settings.SILV_INVENTORYConnectionString"].ConnectionString.ToString());
+        SqlConnection conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["PVGLASSESS.Properties.Settings.NuevaImagenConnectionString"].ConnectionString.ToString());
         public SqlDataAdapter adaptador;
         public DataTable datatables;
         public SqlCommand comando;

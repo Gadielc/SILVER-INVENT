@@ -38,7 +38,7 @@ namespace SILVER_INVENTORY
         */
         public void LlenarTabla()
         {
-            using (SqlConnection conexion=new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_INVENTORY.Properties.Settings.SILV_INVENTORYConnectionString"].ConnectionString.ToString()))
+            using (SqlConnection conexion=new SqlConnection(ConfigurationManager.ConnectionStrings["PVGLASSESS.Properties.Settings.NuevaImagenConnectionString"].ConnectionString.ToString()))
             {
                 try
                 {
@@ -116,9 +116,10 @@ namespace SILVER_INVENTORY
                     using (SqlConnection conexion =new SqlConnection(ConfigurationManager.ConnectionStrings["SILVER_INVENTORY.Properties.Settings.SILV_INVENTORYConnectionString"].ConnectionString.ToString()))
                     {
                         conexion.Open();
-                        mt.comando = new SqlCommand("",conexion);
+                        mt.comando = new SqlCommand("SP_GLASS_ARTICULOS_INSERT", conexion);
                         mt.comando.CommandType = CommandType.StoredProcedure;
                         //Parametros del command SP
+                        
                     }
                 }
                 catch (Exception ex)

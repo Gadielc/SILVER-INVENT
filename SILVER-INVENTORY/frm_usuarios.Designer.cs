@@ -89,6 +89,7 @@
             this.colFECHAACTUALIZACION = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUSUARIOACTUALIZACION = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFECHADEREGISTRO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.sP_SILV_USUARIOS_REPORTTableAdapter1 = new SILVER_INVENTORY.SILV_INVENTORYDataSetTableAdapters.SP_SILV_USUARIOS_REPORTTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -124,7 +125,6 @@
             this.BTN_SHOW,
             this.LBL_RESULT});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbon.MaxItemId = 14;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
@@ -135,7 +135,7 @@
             this.ribbonPage1});
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
-            this.ribbon.Size = new System.Drawing.Size(1029, 179);
+            this.ribbon.Size = new System.Drawing.Size(882, 143);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // BTN_SAVE
@@ -343,11 +343,10 @@
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.LBL_RESULT);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 726);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 591);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1029, 40);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(882, 31);
             // 
             // dockManager1
             // 
@@ -371,12 +370,11 @@
             this.dockPanel1.Controls.Add(this.dockPanel1_Container);
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanel1.ID = new System.Guid("1270874b-0eee-49db-85f4-21a783b63171");
-            this.dockPanel1.Location = new System.Drawing.Point(0, 179);
-            this.dockPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dockPanel1.Location = new System.Drawing.Point(0, 143);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.Options.ShowCloseButton = false;
             this.dockPanel1.OriginalSize = new System.Drawing.Size(352, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(352, 547);
+            this.dockPanel1.Size = new System.Drawing.Size(352, 448);
             this.dockPanel1.Text = "INFORMACION DEL USUARIO";
             // 
             // dockPanel1_Container
@@ -391,122 +389,109 @@
             this.dockPanel1_Container.Controls.Add(this.TXT_NAME);
             this.dockPanel1_Container.Controls.Add(this.labelControl1);
             this.dockPanel1_Container.Controls.Add(this.TXT_ID);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(5, 27);
-            this.dockPanel1_Container.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(340, 515);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(343, 421);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // C_ACTIVE_INACTIVE
             // 
-            this.C_ACTIVE_INACTIVE.Location = new System.Drawing.Point(9, 415);
-            this.C_ACTIVE_INACTIVE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.C_ACTIVE_INACTIVE.Location = new System.Drawing.Point(8, 337);
             this.C_ACTIVE_INACTIVE.MenuManager = this.ribbon;
             this.C_ACTIVE_INACTIVE.Name = "C_ACTIVE_INACTIVE";
             this.C_ACTIVE_INACTIVE.Properties.Caption = "ACTIVO/INACTIVO";
             this.C_ACTIVE_INACTIVE.Properties.ValueChecked = 1;
             this.C_ACTIVE_INACTIVE.Properties.ValueUnchecked = 0;
-            this.C_ACTIVE_INACTIVE.Size = new System.Drawing.Size(147, 20);
+            this.C_ACTIVE_INACTIVE.Size = new System.Drawing.Size(126, 19);
             this.C_ACTIVE_INACTIVE.TabIndex = 11;
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(9, 225);
-            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl4.Location = new System.Drawing.Point(8, 183);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(104, 16);
+            this.labelControl4.Size = new System.Drawing.Size(89, 13);
             this.labelControl4.TabIndex = 9;
             this.labelControl4.Text = "TIPO DE USUARIO";
             // 
             // R_TYPE
             // 
-            this.R_TYPE.Location = new System.Drawing.Point(9, 249);
-            this.R_TYPE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.R_TYPE.Location = new System.Drawing.Point(8, 202);
             this.R_TYPE.MenuManager = this.ribbon;
             this.R_TYPE.Name = "R_TYPE";
             this.R_TYPE.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "ADMINISTRADOR"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "AUXILIAR")});
-            this.R_TYPE.Size = new System.Drawing.Size(147, 118);
+            this.R_TYPE.Size = new System.Drawing.Size(126, 96);
             this.R_TYPE.TabIndex = 10;
             // 
             // TXT_PASSWORD
             // 
-            this.TXT_PASSWORD.Location = new System.Drawing.Point(173, 188);
-            this.TXT_PASSWORD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TXT_PASSWORD.Location = new System.Drawing.Point(148, 153);
             this.TXT_PASSWORD.MenuManager = this.ribbon;
             this.TXT_PASSWORD.Name = "TXT_PASSWORD";
             this.TXT_PASSWORD.Properties.UseSystemPasswordChar = true;
-            this.TXT_PASSWORD.Size = new System.Drawing.Size(147, 22);
+            this.TXT_PASSWORD.Size = new System.Drawing.Size(126, 20);
             this.TXT_PASSWORD.TabIndex = 9;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(173, 165);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl3.Location = new System.Drawing.Point(148, 134);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(80, 16);
+            this.labelControl3.Size = new System.Drawing.Size(68, 13);
             this.labelControl3.TabIndex = 8;
             this.labelControl3.Text = "CONTRASEÑA";
             // 
             // TXT_USERNAME
             // 
-            this.TXT_USERNAME.Location = new System.Drawing.Point(9, 188);
-            this.TXT_USERNAME.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TXT_USERNAME.Location = new System.Drawing.Point(8, 153);
             this.TXT_USERNAME.MenuManager = this.ribbon;
             this.TXT_USERNAME.Name = "TXT_USERNAME";
-            this.TXT_USERNAME.Size = new System.Drawing.Size(147, 22);
+            this.TXT_USERNAME.Size = new System.Drawing.Size(126, 20);
             this.TXT_USERNAME.TabIndex = 9;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(9, 165);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl2.Location = new System.Drawing.Point(8, 134);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(53, 16);
+            this.labelControl2.Size = new System.Drawing.Size(46, 13);
             this.labelControl2.TabIndex = 8;
             this.labelControl2.Text = "USUARIO";
             // 
             // TXT_NAME
             // 
-            this.TXT_NAME.Location = new System.Drawing.Point(9, 111);
-            this.TXT_NAME.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TXT_NAME.Location = new System.Drawing.Point(8, 90);
             this.TXT_NAME.MenuManager = this.ribbon;
             this.TXT_NAME.Name = "TXT_NAME";
-            this.TXT_NAME.Size = new System.Drawing.Size(255, 22);
+            this.TXT_NAME.Size = new System.Drawing.Size(219, 20);
             this.TXT_NAME.TabIndex = 7;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(9, 87);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl1.Location = new System.Drawing.Point(8, 71);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(125, 16);
+            this.labelControl1.Size = new System.Drawing.Size(107, 13);
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "NOMBRE DE USUARIO";
             // 
             // TXT_ID
             // 
-            this.TXT_ID.Location = new System.Drawing.Point(9, 20);
-            this.TXT_ID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TXT_ID.Location = new System.Drawing.Point(8, 16);
             this.TXT_ID.MenuManager = this.ribbon;
             this.TXT_ID.Name = "TXT_ID";
             this.TXT_ID.Properties.ReadOnly = true;
-            this.TXT_ID.Size = new System.Drawing.Size(117, 22);
+            this.TXT_ID.Size = new System.Drawing.Size(100, 20);
             this.TXT_ID.TabIndex = 0;
             // 
             // DGV_DATA
             // 
             this.DGV_DATA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGV_DATA.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.DGV_DATA.Location = new System.Drawing.Point(352, 179);
+            this.DGV_DATA.Location = new System.Drawing.Point(352, 143);
             this.DGV_DATA.MainView = this.G_DATA;
-            this.DGV_DATA.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DGV_DATA.Name = "DGV_DATA";
             this.DGV_DATA.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1,
             this.repositoryItemRadioGroup1});
-            this.DGV_DATA.Size = new System.Drawing.Size(677, 547);
+            this.DGV_DATA.Size = new System.Drawing.Size(530, 448);
             this.DGV_DATA.TabIndex = 3;
             this.DGV_DATA.UseEmbeddedNavigator = true;
             this.DGV_DATA.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -611,17 +596,20 @@
             this.colFECHADEREGISTRO.Visible = true;
             this.colFECHADEREGISTRO.VisibleIndex = 8;
             // 
+            // sP_SILV_USUARIOS_REPORTTableAdapter1
+            // 
+            this.sP_SILV_USUARIOS_REPORTTableAdapter1.ClearBeforeFill = true;
+            // 
             // frm_usuarios
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1029, 766);
+            this.ClientSize = new System.Drawing.Size(882, 622);
             this.Controls.Add(this.DGV_DATA);
             this.Controls.Add(this.dockPanel1);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_usuarios";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
@@ -699,5 +687,6 @@
         private DevExpress.XtraEditors.RadioGroup R_TYPE;
         private DevExpress.XtraEditors.CheckEdit C_ACTIVE_INACTIVE;
         private DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup repositoryItemRadioGroup1;
+        private SILV_INVENTORYDataSetTableAdapters.SP_SILV_USUARIOS_REPORTTableAdapter sP_SILV_USUARIOS_REPORTTableAdapter1;
     }
 }
