@@ -89,7 +89,6 @@
             this.colFECHAACTUALIZACION = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUSUARIOACTUALIZACION = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFECHADEREGISTRO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.sP_SILV_USUARIOS_REPORTTableAdapter1 = new SILVER_INVENTORY.SILV_INVENTORYDataSetTableAdapters.SP_SILV_USUARIOS_REPORTTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -135,7 +134,7 @@
             this.ribbonPage1});
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
-            this.ribbon.Size = new System.Drawing.Size(882, 143);
+            this.ribbon.Size = new System.Drawing.Size(857, 143);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // BTN_SAVE
@@ -182,7 +181,6 @@
             this.SHOW_PANEL.ImageOptions.Image = global::SILVER_INVENTORY.Properties.Resources.inlinesizelegend_16x16;
             this.SHOW_PANEL.ImageOptions.LargeImage = global::SILVER_INVENTORY.Properties.Resources.inlinesizelegend_32x32;
             this.SHOW_PANEL.Name = "SHOW_PANEL";
-            this.SHOW_PANEL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.SHOW_PANEL_ItemClick);
             // 
             // HIDE_PANEL
             // 
@@ -192,7 +190,6 @@
             this.HIDE_PANEL.ImageOptions.Image = global::SILVER_INVENTORY.Properties.Resources.legendnone2_16x16;
             this.HIDE_PANEL.ImageOptions.LargeImage = global::SILVER_INVENTORY.Properties.Resources.legendnone2_32x32;
             this.HIDE_PANEL.Name = "HIDE_PANEL";
-            this.HIDE_PANEL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.HIDE_PANEL_ItemClick);
             // 
             // VIEW_AUTOFILTER
             // 
@@ -201,7 +198,6 @@
             this.VIEW_AUTOFILTER.ImageOptions.Image = global::SILVER_INVENTORY.Properties.Resources.masterfilter_16x16;
             this.VIEW_AUTOFILTER.ImageOptions.LargeImage = global::SILVER_INVENTORY.Properties.Resources.masterfilter_32x32;
             this.VIEW_AUTOFILTER.Name = "VIEW_AUTOFILTER";
-            this.VIEW_AUTOFILTER.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.VIEW_AUTOFILTER_ItemClick);
             // 
             // HIDE_AUTOFILTER
             // 
@@ -346,7 +342,7 @@
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 591);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(882, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(857, 31);
             // 
             // dockManager1
             // 
@@ -373,8 +369,8 @@
             this.dockPanel1.Location = new System.Drawing.Point(0, 143);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.Options.ShowCloseButton = false;
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(352, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(352, 448);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(294, 200);
+            this.dockPanel1.Size = new System.Drawing.Size(294, 448);
             this.dockPanel1.Text = "INFORMACION DEL USUARIO";
             // 
             // dockPanel1_Container
@@ -391,7 +387,7 @@
             this.dockPanel1_Container.Controls.Add(this.TXT_ID);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(343, 421);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(285, 421);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // C_ACTIVE_INACTIVE
@@ -429,7 +425,6 @@
             this.TXT_PASSWORD.Location = new System.Drawing.Point(148, 153);
             this.TXT_PASSWORD.MenuManager = this.ribbon;
             this.TXT_PASSWORD.Name = "TXT_PASSWORD";
-            this.TXT_PASSWORD.Properties.UseSystemPasswordChar = true;
             this.TXT_PASSWORD.Size = new System.Drawing.Size(126, 20);
             this.TXT_PASSWORD.TabIndex = 9;
             // 
@@ -481,17 +476,18 @@
             this.TXT_ID.Properties.ReadOnly = true;
             this.TXT_ID.Size = new System.Drawing.Size(100, 20);
             this.TXT_ID.TabIndex = 0;
+            this.TXT_ID.TextChanged += new System.EventHandler(this.TXT_ID_TextChanged);
             // 
             // DGV_DATA
             // 
             this.DGV_DATA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGV_DATA.Location = new System.Drawing.Point(352, 143);
+            this.DGV_DATA.Location = new System.Drawing.Point(294, 143);
             this.DGV_DATA.MainView = this.G_DATA;
             this.DGV_DATA.Name = "DGV_DATA";
             this.DGV_DATA.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1,
             this.repositoryItemRadioGroup1});
-            this.DGV_DATA.Size = new System.Drawing.Size(530, 448);
+            this.DGV_DATA.Size = new System.Drawing.Size(563, 448);
             this.DGV_DATA.TabIndex = 3;
             this.DGV_DATA.UseEmbeddedNavigator = true;
             this.DGV_DATA.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -596,16 +592,12 @@
             this.colFECHADEREGISTRO.Visible = true;
             this.colFECHADEREGISTRO.VisibleIndex = 8;
             // 
-            // sP_SILV_USUARIOS_REPORTTableAdapter1
-            // 
-            this.sP_SILV_USUARIOS_REPORTTableAdapter1.ClearBeforeFill = true;
-            // 
             // frm_usuarios
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(882, 622);
+            this.ClientSize = new System.Drawing.Size(857, 622);
             this.Controls.Add(this.DGV_DATA);
             this.Controls.Add(this.dockPanel1);
             this.Controls.Add(this.ribbonStatusBar);
@@ -687,6 +679,5 @@
         private DevExpress.XtraEditors.RadioGroup R_TYPE;
         private DevExpress.XtraEditors.CheckEdit C_ACTIVE_INACTIVE;
         private DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup repositoryItemRadioGroup1;
-        private SILV_INVENTORYDataSetTableAdapters.SP_SILV_USUARIOS_REPORTTableAdapter sP_SILV_USUARIOS_REPORTTableAdapter1;
     }
 }
